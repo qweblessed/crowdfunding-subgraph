@@ -1,4 +1,4 @@
-type Funded @entity(immutable: true) {
+type Fund @entity(immutable: true) {
   id: Bytes!
   projectId: BigInt! # uint256
   amount: BigInt! # uint256
@@ -22,7 +22,7 @@ type Project @entity(immutable: true) {
   blockTimestamp: BigInt!
 }
 
-type RaisedFundsReceived @entity(immutable: true) {
+type RaiseFundsReceive @entity(immutable: true) {
   id: Bytes!
   projectId: BigInt! 
   amount: BigInt!
@@ -32,7 +32,7 @@ type RaisedFundsReceived @entity(immutable: true) {
   transactionHash: Bytes!
 }
 
-type ReFunded @entity(immutable: true) {
+type Refund @entity(immutable: true) {
   id: Bytes!
   projectId: BigInt! # uint256
   amount: BigInt! # uint256

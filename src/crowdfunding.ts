@@ -7,15 +7,15 @@ import {
   Withdraw as WithdrawEvent,
 } from "../generated/Crowdfunding/Crowdfunding";
 import {
-  Funded,
+  Fund,
   Project,
-  RaisedFundsReceived,
-  ReFunded,
+  RaiseFundsReceive,
+  Refund,
   Withdraw,
 } from "../generated/schema";
 
 export function handleFunded(event: FundedEvent): void {
-  const fundInEntity = new Funded(
+  const fundInEntity = new Fund(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
 
@@ -63,7 +63,7 @@ export function handleProjectCreated(event: ProjectCreatedEvent): void {
 export function handleRaisedFundsReceived(
   event: RaisedFundsReceivedEvent
 ): void {
-  const projectWithdrawEntity = new RaisedFundsReceived(
+  const projectWithdrawEntity = new RaiseFundsReceive(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
   projectWithdrawEntity.projectId = event.params.projectId;
@@ -87,7 +87,7 @@ export function handleRaisedFundsReceived(
 }
 
 export function handleReFunded(event: ReFundedEvent): void {
-  const refundEntity = new ReFunded(
+  const refundEntity = new Refund(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
   refundEntity.projectId = event.params.projectId;
