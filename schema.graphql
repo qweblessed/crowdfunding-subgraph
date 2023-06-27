@@ -11,8 +11,8 @@ type Fund @entity(immutable: true) {
 type Project @entity(immutable: true) {
   id: ID!
   name: Bytes!
-  description: Bytes!
-  url: Bytes!
+  description: String!
+  url: String!
   goal: BigInt!
   raisedAmount: BigInt! 
   endDateTs: BigInt! 
